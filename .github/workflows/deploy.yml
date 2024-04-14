@@ -41,8 +41,10 @@ jobs:
         working-directory: './@vitejs/app'
         run: npm run build
       - name: Setup Pages
+        working-directory: './@vitejs/app'
         uses: actions/configure-pages@v4
       - name: Upload artifact
+        working-directory: './@vitejs/app'
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload dist folder
