@@ -124,3 +124,19 @@ document.querySelectorAll('.image-container img').forEach(image => {
 document.querySelector('.popup-img span').onclick = () => {
   document.querySelector('.popup-img').style.display = 'none';
 }
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+      console.log(entry)
+      if(entry.isIntersecting) {
+          entry.target.classList.add('show');
+      } else {
+          entry.target.classList.remove('show');
+      }
+  });
+});
+
+
+const hiddenElements = document.querySelectorAll('.hidden, .hidden-accy, .hidden-boss');
+
+hiddenElements.forEach((el) => observer.observe(el));
